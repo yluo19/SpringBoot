@@ -1,0 +1,22 @@
+server:
+  port: 8081
+
+logging:
+  level:
+    root: info
+    com.yuro: debug
+  file: logs/debug.log
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/book?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: luoyu123
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+
+

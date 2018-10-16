@@ -24,18 +24,18 @@ public class HelloController {
      * 从properties配置文件拿取配置数据
      *
      * 通过@Value 注解EL表达式获取数据
+     *
+     *    @Value("${book.name}")
+     *     private String bookName;
+     *     @Value("${book.author}")
+     *     private String author;
+     *     @Value("${book.isbn}")
+     *     private String isbn;
+     *     @Value("${book.description}")
+     *     private String description;
      */
-    @Value("${book.name}")
-    private String bookName;
-    @Value("${book.author}")
-    private String author;
-    @Value("${book.isbn}")
-    private String isbn;
-    @Value("${book.description}")
-    private String description;
 
-    @Autowired
-    private Book book;
+
 
     /**
      * @RequestMapping
@@ -54,7 +54,7 @@ public class HelloController {
     @GetMapping("/books/{id}")
     @ResponseBody
     public Book getOne(@PathVariable long id){
-        return book;
+        return null;
     }
 
 
@@ -113,11 +113,6 @@ public class HelloController {
         Map<String, Object> book1 = new HashMap<>();
         book1.put("name", "HarryPotter");
         book1.put("author", "Rolli");
-        Map<String, Object> book2 = new HashMap<>();
-        book2.put("name", bookName);
-        book2.put("author", author);
-        book2.put("isbn", isbn);
-        book2.put("description", description);
         Map<String, Object> book3 = new HashMap<>();
         book3.put("name", "Java");
         book3.put("author", "Oracle");
@@ -126,7 +121,7 @@ public class HelloController {
         book4.put("author", "Jack Ma");
 
         List<Map> contents = new ArrayList<>();
-        contents.add(book1); contents.add(book2); contents.add(book3); contents.add(book4);
+        contents.add(book1); contents.add(book3); contents.add(book4);
 
         Map<String, Object> pageMap = new HashMap<>();
         pageMap.put("page", page);
