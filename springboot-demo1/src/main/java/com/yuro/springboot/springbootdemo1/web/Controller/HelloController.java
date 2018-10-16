@@ -1,6 +1,9 @@
 package com.yuro.springboot.springbootdemo1.web.Controller;
 
 
+import com.yuro.springboot.springbootdemo1.domain.Book;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,6 +21,23 @@ import java.util.*;
 public class HelloController {
 
     /**
+     * 从properties配置文件拿取配置数据
+     *
+     * 通过@Value 注解EL表达式获取数据
+     */
+    @Value("${book.name}")
+    private String bookName;
+    @Value("${book.author}")
+    private String author;
+    @Value("${book.isbn}")
+    private String isbn;
+    @Value("${book.description}")
+    private String description;
+
+    @Autowired
+    private Book book;
+
+    /**
      * @RequestMapping
      *
      * 1。在方法之上 ： 对应url 映射请求到目标方法
@@ -29,6 +49,12 @@ public class HelloController {
     public String hello() {
 
         return "hello";
+    }
+
+    @GetMapping("/books/{id}")
+    @ResponseBody
+    public Book getOne(@PathVariable long id){
+        return book;
     }
 
 
@@ -88,8 +114,10 @@ public class HelloController {
         book1.put("name", "HarryPotter");
         book1.put("author", "Rolli");
         Map<String, Object> book2 = new HashMap<>();
-        book2.put("name", "Computer Architecture");
-        book2.put("author", "daniu");
+        book2.put("name", bookName);
+        book2.put("author", author);
+        book2.put("isbn", isbn);
+        book2.put("description", description);
         Map<String, Object> book3 = new HashMap<>();
         book3.put("name", "Java");
         book3.put("author", "Oracle");
