@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: PassBookMerchants
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/passbook?autoReconnect=true&
+    username: root
+    password: luoyu123
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: passbook
+    listener:
+      concurrency: 4
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+server:
+  port: 9527
+logging:
+  level: debug
+  file: log/passbook-merchants.log
