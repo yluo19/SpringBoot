@@ -93,6 +93,6 @@ public class MerchantsServiceImpl implements ImerchantsService {
             log.info("DropPassTemplate : {}", passTemplate);
         }
 
-        return null;
+        return response;
     }
 }

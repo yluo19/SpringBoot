@@ -57,6 +57,18 @@ public class MerchantsServiceTest {
         System.out.println(JSON.toJSONString(imerchantsService.buildMerchantsInfoById(7)));
     }
 
+
+    /**
+     * DropPassTemplate : {"background":2,
+     * "desc":"详情： 慕课网",
+     * "endDate":1541035316238,"
+     * hasToken":false,
+     * "id":7,
+     * "limit":10000,
+     * "startDate":1540171316238,
+     * "summary":"简介： 慕课",
+     * "title":"title: 慕课网"}
+     */
     @Test
     public void testDropPassTemplate() {
         PassTemplate passTemplate = new PassTemplate();
