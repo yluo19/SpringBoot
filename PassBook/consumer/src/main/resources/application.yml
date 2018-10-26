@@ -15,7 +15,7 @@ spring:
   data:
     hbase:
       quorum: localhost:2181
-      rootDir:
+      rootDir: file:/usr/local/Cellar/hadoop/3.1.1/libexec/tmp
       nodeParent:
     redis:
       host: 127.0.0.1
